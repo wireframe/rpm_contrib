@@ -13,11 +13,14 @@ module RPMContrib
         old_perform_method = instance_method(:perform)
 
         define_method(:perform) do
-          class_name = args.first
-          method = args[1]
+          options = {
+            :class_name => args[0],
+            :name => args[1].to_s,
+            :params => {:id => args[2]},
+            :category => 'OtherTransaction/BackgroundedResqueJob'
+          }
           NewRelic::Agent.reset_stats if NewRelic::Agent.respond_to? :reset_stats
-          perform_action_with_newrelic_trace(:name => method, :class_name => class_name, :params => @payload,
-                                             :category => 'OtherTransaction/BackgroundedResqueJob') do
+          perform_action_with_newrelic_trace(options) do
             old_perform_method.bind(self).call
           end
 
