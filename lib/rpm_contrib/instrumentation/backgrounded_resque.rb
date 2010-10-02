@@ -15,8 +15,8 @@ module RPMContrib
         define_method(:perform) do
           options = {
             :class_name => args[0],
-            :name => args[1].to_s,
-            :params => {:id => args[2]},
+            :name => args[2].to_s,
+            :params => {:id => args[1]},
             :category => 'OtherTransaction/BackgroundedResqueJob'
           }
           NewRelic::Agent.reset_stats if NewRelic::Agent.respond_to? :reset_stats
