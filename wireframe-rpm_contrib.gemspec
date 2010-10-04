@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{wireframe-rpm_contrib}
-  s.version = "1.0.12.3"
+  s.version = "1.0.12.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser"]
-  s.date = %q{2010-10-02}
+  s.date = %q{2010-10-03}
   s.description = %q{Community contributed instrumentation for various frameworks based on
 the New Relic Ruby monitoring gem newrelic_rpm.
 }
@@ -26,11 +26,9 @@ the New Relic Ruby monitoring gem newrelic_rpm.
      "Rakefile",
      "lib/new_relic/control/camping.rb",
      "lib/rpm_contrib.rb",
-     "lib/rpm_contrib/detection/backgrounded_resque.rb",
      "lib/rpm_contrib/detection/camping.rb",
      "lib/rpm_contrib/detection/resque.rb",
      "lib/rpm_contrib/instrumentation/aws/s3.rb",
-     "lib/rpm_contrib/instrumentation/backgrounded_resque.rb",
      "lib/rpm_contrib/instrumentation/camping.rb",
      "lib/rpm_contrib/instrumentation/cassandra.rb",
      "lib/rpm_contrib/instrumentation/mongo_mapper.rb",
