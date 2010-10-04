@@ -23,7 +23,7 @@ module RPMContrib
 
         private
         def backgrounded_job?
-          defined?(::Backgrounded::Handler::ResqueHandler) && payload_class.is_a?(::Backgrounded::Handler::ResqueHandler)
+          defined?(::Backgrounded::Handler::ResqueHandler) && payload_class == ::Backgrounded::Handler::ResqueHandler
         end
         def trace_options
           if backgrounded_job?
