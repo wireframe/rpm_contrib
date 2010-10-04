@@ -23,7 +23,7 @@ module RPMContrib
 
         private
         def backgrounded_job?
-          if defined?(::Backgrounded::Handler::ResqueHandler) && self.is_a?(::Backgrounded::Handler::ResqueHandler)
+          defined?(::Backgrounded::Handler::ResqueHandler) && self.is_a?(::Backgrounded::Handler::ResqueHandler)
         end
         def trace_options
           if backgrounded_job?
@@ -34,7 +34,7 @@ module RPMContrib
               :category => 'OtherTransaction/BackgroundedResqueJob'
             }
           else
-            class_name = (payload_class ||self.class).name
+            class_name = (payload_class || self.class).name
             {
               :class_name => class_name,
               :name => 'perform',
