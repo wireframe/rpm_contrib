@@ -1,6 +1,6 @@
-* Version 1.0.12.5
+* Version 1.0.12.6
 
-  Add backgrounded resque support
+  Add support for resque jobs running in backgrounded
 
 * Version 1.0.12
 
