@@ -10,7 +10,7 @@ module Resque
       
       def around_perform_with_monitoring(*args)
         begin
-          perform_action_with_newrelic_trace(trace_options) do
+          perform_action_with_newrelic_trace(trace_options(*args)) do
             yield(*args)
           end
         ensure
@@ -19,9 +19,9 @@ module Resque
       end
       private
       def backgrounded_job?
-        defined?(::Backgrounded::Handler::ResqueHandler) && payload_class == ::Backgrounded::Handler::ResqueHandler
+        defined?(::Backgrounded::Handler::ResqueHandler) && self == ::Backgrounded::Handler::ResqueHandler
       end
-      def trace_options
+      def trace_options(*args)
         if backgrounded_job?
           {
             :class_name => args[0],
@@ -30,9 +30,8 @@ module Resque
             :category => 'OtherTransaction/BackgroundedResqueJob'
           }
         else
-          class_name = (payload_class || self.class).name
           {
-            :class_name => class_name,
+            :class_name => self.name,
             :name => 'perform',
             :category => 'OtherTransaction/ResqueJob'
           }
