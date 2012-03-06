@@ -17,7 +17,7 @@ EOF
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "rpm_contrib"
+    gem.name = "wireframe-rpm_contrib"
     gem.summary = SUMMARY
     gem.description = DESCRIPTION
     gem.email = "support@newrelic.com"
