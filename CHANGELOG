@@ -1,3 +1,8 @@
+* Version 2.1.6.1
+
+  Add instrumentation for Backgrounded Resque Job Processing Framework (Ryan
+	Sonnek)
+
 * Version 2.1.6
   Community contributed instrumentation
   - ThinkingSphinx instrumentation (W. Andrew Loe III)

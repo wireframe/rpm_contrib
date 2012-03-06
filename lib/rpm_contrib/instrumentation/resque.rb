@@ -10,13 +10,32 @@ module Resque
       
       def around_perform_with_monitoring(*args)
         begin
-          perform_action_with_newrelic_trace(:name => 'perform',
-                                             :class_name => self.name,
-                                 :category => 'OtherTransaction/ResqueJob') do
+          perform_action_with_newrelic_trace(trace_options) do
             yield(*args)
           end
         ensure
           NewRelic::Agent.shutdown if RPMContrib::LanguageSupport.can_fork?
+        end
+      end
+      private
+      def backgrounded_job?
+        defined?(::Backgrounded::Handler::ResqueHandler) && payload_class == ::Backgrounded::Handler::ResqueHandler
+      end
+      def trace_options
+        if backgrounded_job?
+          {
+            :class_name => args[0],
+            :name => args[2].to_s,
+            :params => @payload,
+            :category => 'OtherTransaction/BackgroundedResqueJob'
+          }
+        else
+          class_name = (payload_class || self.class).name
+          {
+            :class_name => class_name,
+            :name => 'perform',
+            :category => 'OtherTransaction/ResqueJob'
+          }
         end
       end
     end
