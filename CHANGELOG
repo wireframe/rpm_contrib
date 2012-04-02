@@ -1,3 +1,8 @@
+* Version 2.1.8.1
+
+  Add instrumentation for Backgrounded Resque Job Processing Framework (Ryan
+	Sonnek)
+
 * Version 2.1.8
   - Removed redis instrumenation in favor of https://github.com/evanphx/newrelic-redis
   - [FIX] adding check for aws-sdk (Tom Caspy)
