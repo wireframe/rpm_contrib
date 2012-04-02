@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "rpm_contrib"
-  s.version = "2.1.6"
+  s.version = "2.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bill Kayser", "Jon Guymon"]
-  s.date = "2011-11-08"
+  s.date = "2012-03-19"
   s.description = "Community contributed instrumentation for various frameworks based on\nthe New Relic Ruby monitoring gem newrelic_rpm.\n"
   s.email = "support@newrelic.com"
   s.extra_rdoc_files = [
@@ -38,9 +38,9 @@ Gem::Specification.new do |s|
     "lib/rpm_contrib/instrumentation/elastic_search.rb",
     "lib/rpm_contrib/instrumentation/kyototycoon.rb",
     "lib/rpm_contrib/instrumentation/mongo.rb",
+    "lib/rpm_contrib/instrumentation/mongoid.rb",
     "lib/rpm_contrib/instrumentation/paperclip.rb",
     "lib/rpm_contrib/instrumentation/picky.rb",
-    "lib/rpm_contrib/instrumentation/redis.rb",
     "lib/rpm_contrib/instrumentation/resque.rb",
     "lib/rpm_contrib/instrumentation/riak_client.rb",
     "lib/rpm_contrib/instrumentation/ripple.rb",
@@ -55,7 +55,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/schema.rb",
     "test/test_curb.rb",
-    "test/test_redis.rb",
+    "test/test_picky.rb",
     "test/test_resque.rb",
     "test/test_workling.rb"
   ]

@@ -1,9 +1,20 @@
-* Version 2.1.6.2
+* Version 2.1.8
+  - Removed redis instrumenation in favor of https://github.com/evanphx/newrelic-redis
+  - [FIX] adding check for aws-sdk (Tom Caspy)
+  - Improved Mongo instrumenation from pull request #16 titanous/mongoid-instrumentation
 
-  Add instrumentation for Backgrounded Resque Job Processing Framework (Ryan
-	Sonnek)
+* Version 2.1.7
+
+  Community contributed instrumentation
+  - ThinkingSphinx instrumentation improvement (Martin Sarsale)
+  - Picky search engine instrumentation (Niko Dittmann)
+  Community Contributed Bug Fixes
+  - Fix instrumentation injection for ActiveMessaging (W. Andrew Loe III)
+  Other
+  - Improvements to resque instrumentation detection of if its in a forking ruby implementation
 
 * Version 2.1.6
+
   Community contributed instrumentation
   - ThinkingSphinx instrumentation (W. Andrew Loe III)
   - Riak instrumentation (Bryce Kerley)
@@ -12,7 +23,7 @@
   - MongoDB instrumentation (Kenn Ejima)
   - Yajl instrumentation (Chris Griego)
   - UltraSphinx instrumentation (Jonathan Rudenberg)
-  Renamed ActiveMQ instrumentation to ActiveMessaging (W. Andrew Loe III)
+  - Renamed ActiveMQ instrumentation to ActiveMessaging (W. Andrew Loe III)
 
 * Version 2.1.5
 
